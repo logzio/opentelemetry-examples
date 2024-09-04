@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="true">
+
+    <!-- #### Model 1: Logging via OpenTelemetry Instrumentation #### -->
+
+    <appender name="otel-otlp"
+        class="io.opentelemetry.instrumentation.logback.appender.v1_0.OpenTelemetryAppender">
+        <captureExperimentalAttributes>false</captureExperimentalAttributes>
+        <!-- include src origin info -->
+        <captureCodeAttributes>true</captureCodeAttributes>
+        <!-- include slf4j key/value arguments -->
+        <captureKeyValuePairAttributes>true</captureKeyValuePairAttributes>
+    </appender>
+
+
+    <!-- #### send logs to all 3 loggers #### -->
+    <root level="INFO">
+        <appender-ref ref="otel-otlp" />
+    </root>
+</configuration>
