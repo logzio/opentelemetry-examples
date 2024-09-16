@@ -1,0 +1,16 @@
+{
+    "require": {
+        "slim/slim": "^4",
+        "slim/psr7": "^1",
+        "monolog/monolog": "^3.7",
+        "guzzlehttp/guzzle": "^7.9",
+        "open-telemetry/sdk": "^1.0",
+        "open-telemetry/exporter-otlp": "^1.0",
+        "open-telemetry/opentelemetry-logger-monolog": "^1.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
+    }
+}
