@@ -1,0 +1,66 @@
+{
+    "family": "java-app-task",
+    "networkMode": "awsvpc",
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "256",
+    "memory": "512",
+    "executionRoleArn": "arn:aws:iam::486140753397:role/ecsTaskExecutionRole",
+    "containerDefinitions": [
+        {
+            "name": "java-app",
+            "image": "486140753397.dkr.ecr.us-east-1.amazonaws.com/java-app:latest",
+            "cpu": 128,
+            "portMappings": [
+                {
+                    "containerPort": 8080,
+                    "protocol": "tcp"
+                }
+            ],
+            "essential": true,
+            "environment": [
+                {
+                    "name": "OTEL_METRICS_EXPORTER",
+                    "value": "none"
+                },
+                {
+                    "name": "OTEL_LOGS_EXPORTER",
+                    "value": "none"
+                }
+            ],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/java-app",
+                    "awslogs-region": "us-east-1",
+                    "awslogs-stream-prefix": "ecs"
+                }
+            }
+        },
+        {
+            "name": "otel-collector",
+            "image": "486140753397.dkr.ecr.us-east-1.amazonaws.com/otel-collector:latest",
+            "cpu": 128,
+            "essential": false,
+            "environment": [
+                {
+                    "name": "LOGZIO_TRACING_TOKEN",
+                    "value": "ZTVNvSMnMWJOpuDnUIuRHBmtIObWmaHX"
+                },
+                {
+                    "name": "LOGZIO_REGION",
+                    "value": "us"
+                }
+            ],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/otel-collector",
+                    "awslogs-region": "us-east-1",
+                    "awslogs-stream-prefix": "ecs"
+                }
+            }
+        }
+    ]
+}
