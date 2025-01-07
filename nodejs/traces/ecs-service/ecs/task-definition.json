@@ -46,7 +46,7 @@
             "environment": [
                 {
                     "name": "LOGZIO_TRACING_TOKEN",
-                    "value": "ZTVNvSMnMWJOpuDnUIuRHBmtIObWmaHX"
+                    "value": "none"
                 },
                 {
                     "name": "LOGZIO_REGION",
