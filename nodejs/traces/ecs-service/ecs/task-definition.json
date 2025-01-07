@@ -6,11 +6,11 @@
     ],
     "cpu": "256",
     "memory": "512",
-    "executionRoleArn": "arn:aws:iam::486140753397:role/ecsTaskExecutionRole",
+    "executionRoleArn": "arn:aws:iam::<aws_account_id>:role/ecsTaskExecutionRole",
     "containerDefinitions": [
         {
             "name": "nodejs-app",
-            "image": "486140753397.dkr.ecr.us-east-1.amazonaws.com/nodejs-app:latest",
+            "image": "<aws_account_id>.dkr.ecr.us-east-1.amazonaws.com/nodejs-app:latest",
             "cpu": 128,
             "portMappings": [
                 {
@@ -40,7 +40,7 @@
         },
         {
             "name": "otel-collector",
-            "image": "486140753397.dkr.ecr.us-east-1.amazonaws.com/otel-collector:latest",
+            "image": "<aws_account_id>.dkr.ecr.us-east-1.amazonaws.com/otel-collector:latest",
             "cpu": 128,
             "essential": false,
             "environment": [
