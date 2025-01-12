@@ -335,13 +335,10 @@ lambda-deployment-package.zip
 
 1. **In the "Layers" section**, click **Add a layer**.
 2. **Choose a layer**: Select **Specify an ARN**.
-3. **Layer ARN**: Enter the ARN for the OpenTelemetry Java agent layer:
+3. **Layer ARN**: Find the latest ARN for the OpenTelemetry Java Agent layer on the [OpenTelemetry Lambda GitHub Releases page](https://github.com/open-telemetry/opentelemetry-lambda/releases) under `layer-javaagent`.
+Enter the ARN for the OpenTelemetry Java agent layer
 
-   ```
-   arn:aws:lambda:<region>:901920570463:layer:aws-otel-java-agent-ver-1-29-0:1
-   ```
-
-   **Replace `<region>`** with your AWS region code (e.g., `us-east-1`).
+   **Replace `<region>`** with your AWS region code.
 
 4. **Add**: Click **Add**.
 
@@ -349,19 +346,7 @@ lambda-deployment-package.zip
 
 1. **In the "Layers" section**, click **Add a layer**.
 2. **Choose a layer**: Select **Specify an ARN**.
-3. **Layer ARN**: Enter the ARN for the Logz.io OpenTelemetry Collector layer:
-
-    - For **x86_64** architecture:
-
-      ```
-      arn:aws:lambda:<region>:486140753397:layer:logzio-opentelemetry-collector-amd64:1
-      ```
-
-    - For **arm64** architecture:
-
-      ```
-      arn:aws:lambda:<region>:486140753397:layer:logzio-opentelemetry-collector-arm64:1
-      ```
+3. **Layer ARN**: Enter the ARN for your Lambda architecture (amd64 or arm64) from the [latest release notes](https://github.com/logzio/opentelemetry-lambda/releases).
 
    **Replace `<region>`** with your AWS region code.
 
