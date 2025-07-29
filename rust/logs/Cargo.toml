@@ -10,4 +10,4 @@ opentelemetry-appender-log = "0.27"
 opentelemetry_sdk = { version = "*", features = ["rt-tokio"] }
 opentelemetry-otlp = { version = "*", features = ["http-proto", "reqwest-client", "reqwest-rustls"] }
 rand = "0.8"
-tokio = { version = "1", features = ["full"] }
+tokio = { version = "^1.18.5", features = ["full"] }
